@@ -4,7 +4,8 @@ for my master thesis:
 ## NONLINEAR MODEL PREDICTIVE CONTROL OF MULTIVARIABLE PROCESS USING A NEURAL WIENER STRUCTURE
 Scripts covers:
 * reactor modelling,
-* creating data sets for training and validation purposes
+* creating data sets for training and validation purposes,
+* linear and nonlinear models training
 * predictive control of the model using MPC-NO, MPC-NPSL and GPC algorithms
 * algorithms comparison
 
