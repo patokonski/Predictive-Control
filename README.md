@@ -10,5 +10,4 @@ Scripts covers:
 * algorithms comparison
 
 Description of the process can be found in the following paper:
-* M. Ławryńczuk (2010) Suboptimal nonlinear predictive control based on multivariable neural Ham-
-merstein models. M. Appl Intell 32:173-192
+* M. Ławryńczuk (2010) Suboptimal nonlinear predictive control based on multivariable neural Hammerstein models. M. Appl Intell 32:173-192
