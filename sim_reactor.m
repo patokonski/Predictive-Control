@@ -1,11 +1,5 @@
-%% ------------------------------------------------------------------------
-%                       Praca dyplomowa magisterska
-%  Autor: Patryk Okoñski
-%  Temat: Nieliniowa regulacja predykcyjna procesu dwuwymiarowego
-%  wykorzystuj¹ca neuronowy model Wienera.
-%  ------------------------------------------------------------------------
-
 %% ---------------------- FILE INFO ---------------------------------------
+%  Autor: Patryk Okoñski
 %  Nazwa: sim_reactor.m
 %  Przeznaczenie: Rozwi¹zanie równañ ró¿niczkowych procesu z ode45.
 % -------------------------------------------------------------------------

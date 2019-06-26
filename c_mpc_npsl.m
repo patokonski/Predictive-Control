@@ -1,11 +1,5 @@
-%% ------------------------------------------------------------------------
-%                       Praca dyplomowa magisterska
-%  Autor: Patryk Okoñski
-%  Temat: Nieliniowa regulacja predykcyjna procesu dwuwymiarowego
-%  wykorzystuj¹ca neuronowy model Wienera.
-%  ------------------------------------------------------------------------
-
 %% ---------------------- FILE INFO ---------------------------------------
+%  Autor: Patryk Okoñski
 %  Nazwa: c_mpc_npsl.m
 %  Przeznaczenie: algorytm w postaci funkcji do celów porównawczych. 
 % -------------------------------------------------------------------------
