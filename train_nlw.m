@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk OkoÒski
+%  Autor: Patryk Oko√±ski
 %  Nazwa: train_nlw.m
-%  Przeznaczenie: Uczenie neuronoweogo modelu wienera dla wyjúÊ procesu
+%  Przeznaczenie: Uczenie neuronoweogo modelu wienera dla wyj≈ì√¶ procesu
 %  neutralizacji.
 % -------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ nonlinearity_input = unitgain;
 nonlinearity_output = sigmoidnet('NumberofUnits',K);
 nonlinearity_output.LinearTerm= 'on';
 
-% RzÍdy dynamiki
+% Rz√™dy dynamiki
 nb_vec = ones(1,2)*nb';
 nf_vec = ones(1,2)*nf'; 
 nk_vec = ones(1,2)*nk';  
@@ -39,7 +39,7 @@ load('Dane/train_data.mat');
 load('Dane/validate_data.mat');
 load('Dane/test_data.mat');
 
-% Warunki poczπtkowe
+% Warunki pocz¬πtkowe
 q10 = 16.6;                             
 q30 = 15.6;                             
 
@@ -72,8 +72,8 @@ ymod_h = ymod_h*20 + h0;
 ymod_pH = ymod_pH*5 + pH0;
 
 % Zapis
-%save('Dane/model_h.mat','model_h');
-%save('Dane/model_pH.mat','model_pH');
+save('Dane/model_h.mat','model_h');
+save('Dane/model_pH.mat','model_pH');
 
 
 %% Weryfikacja
@@ -115,7 +115,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('h(k)');
 % legend('proces', 'model');
-% title(['Uczenie wyjúcia h, SSE = ',num2str(e1)]);
+% title(['Uczenie wyj≈ìcia h, SSE = ',num2str(e1)]);
 % export_fig uczenie_nlhw_h_K3.pdf -transparent -nocrop
 % 
 % figure(2)
@@ -126,7 +126,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('pH(k)');
 % legend('proces', 'model');
-% title(['Uczenie wyjúcia pH, SSE = ',num2str(e2)]);
+% title(['Uczenie wyj≈ìcia pH, SSE = ',num2str(e2)]);
 % export_fig uczenie_nlhw_pH_K3.pdf -transparent -nocrop
 % 
 % figure(3)
@@ -137,7 +137,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('h(k)');
 % legend('proces', 'model');
-% title(['Weryfikacja wyjúcia h, SSE = ',num2str(e3)]);
+% title(['Weryfikacja wyj≈ìcia h, SSE = ',num2str(e3)]);
 % export_fig weryfikacja_nlhw_h_K3.pdf -transparent -nocrop
 % 
 % figure(4)
@@ -148,7 +148,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('pH(k)');
 % legend('proces', 'model');
-% title(['Weryfikacja wyjúcia pH, SSE = ',num2str(e4)]);
+% title(['Weryfikacja wyj≈ìcia pH, SSE = ',num2str(e4)]);
 % export_fig weryfikacja_nlhw_pH_K3.pdf -transparent -nocrop
 
 %% Wykresy K=5
@@ -160,7 +160,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('h(k)');
 % legend('proces', 'model');
-% title(['Uczenie wyjúcia h, SSE = ',num2str(e1)]);
+% title(['Uczenie wyj≈ìcia h, SSE = ',num2str(e1)]);
 % export_fig uczenie_nlhw_h_K5.pdf -transparent -nocrop
 % 
 % figure(2)
@@ -171,7 +171,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('pH(k)');
 % legend('proces', 'model');
-% title(['Uczenie wyjúcia pH, SSE = ',num2str(e2)]);
+% title(['Uczenie wyj≈ìcia pH, SSE = ',num2str(e2)]);
 % export_fig uczenie_nlhw_pH_K5.pdf -transparent -nocrop
 % 
 % figure(3)
@@ -182,7 +182,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('h(k)');
 % legend('proces', 'model');
-% title(['Weryfikacja wyjúcia h, SSE = ',num2str(e3)]);
+% title(['Weryfikacja wyj≈ìcia h, SSE = ',num2str(e3)]);
 % export_fig weryfikacja_nlhw_h_K5.pdf -transparent -nocrop
 % 
 % figure(4)
@@ -193,7 +193,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('pH(k)');
 % legend('proces', 'model');
-% title(['Weryfikacja wyjúcia pH, SSE = ',num2str(e4)]);
+% title(['Weryfikacja wyj≈ìcia pH, SSE = ',num2str(e4)]);
 % export_fig weryfikacja_nlhw_pH_K5.pdf -transparent -nocrop
 
 %% Wykresy K=10
@@ -205,7 +205,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('h(k)');
 % legend('proces', 'model');
-% title(['Uczenie wyjúcia h, SSE = ',num2str(e1)]);
+% title(['Uczenie wyj≈ìcia h, SSE = ',num2str(e1)]);
 % export_fig uczenie_nlhw_h_K10.pdf -transparent -nocrop
 % 
 % figure(2)
@@ -216,7 +216,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('pH(k)');
 % legend('proces', 'model');
-% title(['Uczenie wyjúcia pH, SSE = ',num2str(e2)]);
+% title(['Uczenie wyj≈ìcia pH, SSE = ',num2str(e2)]);
 % export_fig uczenie_nlhw_pH_K10.pdf -transparent -nocrop
 % 
 % figure(3)
@@ -227,7 +227,7 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('h(k)');
 % legend('proces', 'model');
-% title(['Weryfikacja wyjúcia h, SSE = ',num2str(e3)]);
+% title(['Weryfikacja wyj≈ìcia h, SSE = ',num2str(e3)]);
 % export_fig weryfikacja_nlhw_h_K10.pdf -transparent -nocrop
 % 
 % figure(4)
@@ -238,6 +238,6 @@ e4 = (validate(:,4)-ymod_pHv)'*(validate(:,4)-ymod_pHv);
 % xlabel('Krok [k]');
 % ylabel('pH(k)');
 % legend('proces', 'model');
-% title(['Weryfikacja wyjúcia pH, SSE = ',num2str(e4)]);
+% title(['Weryfikacja wyj≈ìcia pH, SSE = ',num2str(e4)]);
 % export_fig weryfikacja_nlhw_pH_K10.pdf -transparent -nocrop
 
