@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Oko駍ki
+%  Autor: Patryk Oko艅ski
 %  Nazwa: mpc_porownanie.m
-%  Przeznaczenie: Symulacja por體nywanych algorytm體.
+%  Przeznaczenie: Symulacja por贸wnywanych algorytm贸w.
 % -------------------------------------------------------------------------
 
 clear all;
@@ -21,7 +21,7 @@ no_lambda = 1;
 npsl_N = no_N;
 npsl_Nu = no_Nu;
 npsl_lambda = no_lambda;
-%% Alokacja wektor體
+%% Alokacja wektor贸w
 % GPC
 gpc_y_zad_h = [];
 gpc_y_zad_pH = [];
@@ -46,10 +46,10 @@ npsl_yp_pH = [];
 npsl_q1 = [];
 npsl_q3 = [];
 npsl_e = [];
-% Macierz b酬d體 i czas體 wykonania
+% Macierz b艂臋d贸w i czas贸w wykonania
 met = zeros(10,max(size(gpc_lambda_vec)));
 
-%% Wywo砤nie algorytm體
+%% Wywo艂anie algorytm贸w
 % MPC-NO
 disp('*Algorytm MPC-NO...');
 start_no = tic;
@@ -61,7 +61,7 @@ start_npsl = tic;
 [npsl_y_zad_h, npsl_y_zad_pH, npsl_yp_h, npsl_yp_pH, npsl_q1, npsl_q3, npsl_e] = c_mpc_npsl(npsl_N, npsl_Nu, npsl_lambda);
 npsl_t = toc(start_npsl);
 
-%% P阾la dla r罂nych warto渃i gpc_lambda
+%% P臋tla dla r贸偶nych warto艣ci gpc_lambda
 for i = 1:max(size(gpc_lambda_vec))
     % GPC
     disp(['*Algorytm GPC, iteracja ',num2str(i),'...']);
@@ -144,7 +144,7 @@ for i = 1:max(size(gpc_lambda_vec))
     grid on
 
 
-    %% Eksport wykres體
+    %% Eksport wykres贸w
     % Budowanie nazwy pliku
 %     w1_txt = sprintf('Wykresy/porownanie_h_N_%d_Nu_%d_lc_%0.2f_lgpc_%0.3f',no_N,no_Nu,no_lambda,gpc_lambda);
 %     w2_txt = sprintf('Wykresy/porownanie_pH_N_%d_Nu_%d_lc_%0.2f_lgpc_%0.3f',no_N,no_Nu,no_lambda,gpc_lambda);
@@ -163,7 +163,7 @@ for i = 1:max(size(gpc_lambda_vec))
 %     export_fig(w3, w3_txt, '-pdf', '-transparent', '-nocrop');
 %     export_fig(w4, w4_txt, '-pdf', '-transparent', '-nocrop');
     
-    % Czyszczenie wykres體 dla kolejnej iteracji
+    % Czyszczenie wykres贸w dla kolejnej iteracji
 %     clf(w1);
 %     clf(w2);
 %     clf(w3);
@@ -172,11 +172,8 @@ for i = 1:max(size(gpc_lambda_vec))
 end
 % Eksport macierzy met
 % save 'Dane/mpc_porownanie_met.mat' met;
-% Zamkni阠ie okien
+% Zamkni臋cie okien
 % close(w1);
 % close(w2);
 % close(w3);
 % close(w4);
-
-
-
