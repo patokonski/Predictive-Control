@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Okoñski
+%  Autor: Patryk OkoÅ„ski
 %  Nazwa: c_mpc_npsl.m
-%  Przeznaczenie: algorytm w postaci funkcji do celów porównawczych. 
+%  Przeznaczenie: algorytm w postaci funkcji do celÃ³w porÃ³wnawczych. 
 % -------------------------------------------------------------------------
 
 function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
@@ -14,7 +14,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
     load('Dane/model_h.mat');
     load('Dane/model_pH.mat');
 
-    % Rzêdy
+    % RzÃªdy
     nb = max(model_h.nb)+1;
     nf = max(model_h.nf)+1;
     nk = max(model_h.nk)+1;
@@ -34,7 +34,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
     wsplambda = lambda*[1 1];
     wspmi = 1*[1 1];
 
-    % Warunki pocz¹tkowe
+    % Warunki poczÂ¹tkowe
     q10 = 16.6;                             
     q30 = 15.6;                             
 
@@ -46,7 +46,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
     x0 = x0(:,1:3);
 
     % -----Parametry neuronowego modelu wienera na potrzeby symulacji
-    % Model wyjœcia h
+    % Model wyjÅ“cia h
     rnn_h = model_h.OutputNonlinearity.Parameters.RegressorMean;
     Qnn_h = model_h.OutputNonlinearity.Parameters.NonLinearSubspace;
     Pnn_h = model_h.OutputNonlinearity.Parameters.LinearSubspace;
@@ -64,7 +64,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
     bw_h(1,1) = B11_h; bw_h(1,2) = B11_h*F21_h;
     bw_h(2,1) = B21_h; bw_h(2,2) = B21_h*F11_h;
 
-    % Model wyjœcia pH
+    % Model wyjÅ“cia pH
     rnn_pH = model_pH.OutputNonlinearity.Parameters.RegressorMean;
     Qnn_pH = model_pH.OutputNonlinearity.Parameters.NonLinearSubspace;
     Pnn_pH = model_pH.OutputNonlinearity.Parameters.LinearSubspace;
@@ -83,7 +83,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
     bw_pH(2,1) = B21_pH; bw_pH(2,2) = B21_pH*F11_pH;	
 
     Kn = model_h.OutputNonlinearity.NumberOfUnits;
-    % Zmiana formatu parametrów a i b
+    % Zmiana formatu parametrÃ³w a i b
     b(1,1,1) = bw_h(1,1);
     b(1,1,2) = bw_h(1,2);
     b(1,2,1) = bw_h(2,1);
@@ -97,32 +97,32 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
     a(2,1) = aw_pH(1);
     a(2,2) = aw_pH(2);
 
-    %% Alokacja wektorów
-    % Trajektora zadana na ca³ym horyzoncie symulacji
+    %% Alokacja wektorÃ³w
+    % Trajektora zadana na caÂ³ym horyzoncie symulacji
     y_zad_h = zeros(kend,1);
     y_zad_pH = zeros(kend,1);
     % Trajektoria zadana w danej iteracji algorytmu
     y_ref_h = zeros(Hp,1);
     y_ref_pH = zeros(Hp,1);
     y_ref = zeros(2*Hp,1);
-    % Wyjœcia procesu
+    % WyjÅ“cia procesu
     yp_h = zeros(kend,1);
     yp_pH = zeros(kend,1);
     yp_h(1:kstart-1) = h0;
     yp_pH(1:kstart-1) = pH0;
-    % Skalowane wyjœcia procesu
+    % Skalowane wyjÅ“cia procesu
     yp_h_sc(1:kstart-1) = (yp_h(1:kstart-1)-h0)/20;
     yp_pH_sc(1:kstart-1) = (yp_pH(1:kstart-1)-pH0)/5;
-    % Wyjœcia modelu
+    % WyjÅ“cia modelu
     ym_h = zeros(kend,1);
     ym_pH = zeros(kend,1);
     % Trajektoria swobodna
     y0_h = zeros(Hp,1);
     y0_pH = zeros(Hp,1);
     y0 = zeros(2*Hp,1);
-    % Przyrosty sterowañ
+    % Przyrosty sterowaÃ±
     detu = zeros(2*Hs,1);
-    % Niemierzealne zak³ócenia i niedok³adnoœci
+    % Niemierzealne zakÂ³Ã³cenia i niedokÂ³adnoÅ“ci
     d_h = zeros(kend,1);
     d_pH = zeros(kend,1);
     % Sterowania procesu
@@ -132,7 +132,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
     u = zeros(2,kend);
     u(1,1:kstart-1) = (q1(1:kstart-1)-q10)/15;
     u(2,1:kstart-1) = (q3(1:kstart-1)-q30)/15;
-    %% Wartoœci zadane
+    %% WartoÅ“ci zadane
     y_zad_pH(1:kstart) = pH0;
     y_zad_pH(3:19) = 6;
     y_zad_pH(20:39) = 8;
@@ -161,7 +161,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
     deltau2min = u2min - u2max;
     deltau2max = u2max - u2min;
     
-    % Dodatkowe sygna³y na potrzeby symulacji modelu
+    % Dodatkowe sygnaÂ³y na potrzeby symulacji modelu
     v_h(1:kstart-1) = 0;
     v_pH(1:kstart-1) = 0;
     v_h0(1:Hp) = 0;
@@ -200,7 +200,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
             LAMBDA(i,i)=wsplambda(n); i=i+1;
         end
     end
-    % Pêtla g³ówna
+    % PÃªtla gÂ³Ã³wna
     for k = kstart:kend
         % -------------------------------------- Symulacja procesu
         % yp_h yp_pH
@@ -214,7 +214,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
         yp_pH_sc(k) = (yp_pH(k)-pH0)/5;
 
         % -------------------------------------- Symulacja modelu
-        % ---------- Obliczenie wyjœcia h
+        % ---------- Obliczenie wyjÅ“cia h
         v_h(k) = bw_h(1,1)*u(1,k-1) + bw_h(1,2)*u(1,k-2)...
         + bw_h(2,1)*u(2,k-1) + bw_h(2,2)*u(2,k-2)...
         - aw_h(1)*v_h(k-1) - aw_h(2)*v_h(k-2);
@@ -224,7 +224,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
         for i = 1:Kn
             ym_h(k) = ym_h(k) + ann_h(i)*logsig((v_h(k) - rnn_h)*bnn_h(i) + cnn_h(i));
         end
-        % ---------- Obliczenie wyjœcia pH
+        % ---------- Obliczenie wyjÅ“cia pH
         v_pH(k) = bw_pH(1,1)*u(1,k-1) + bw_pH(1,2)*u(1,k-2)...
         + bw_pH(2,1)*u(2,k-1) + bw_pH(2,2)*u(2,k-2)...
         - aw_pH(1)*v_pH(k-1) - aw_pH(2)*v_pH(k-2);
@@ -235,7 +235,7 @@ function [y_zad_h, y_zad_pH, yp_h, yp_pH, q1, q3, e] = c_mpc_npsl(N, Nu, lambda)
             ym_pH(k) = ym_pH(k) + ann_pH(i)*logsig((v_pH(k) - rnn_pH)*bnn_pH(i) + cnn_pH(i));
         end
         % -------------------------------------- Inne obliczenia    
-        % Niedok³adnoœci i niepewnoœci pomiaru
+        % NiedokÂ³adnoÅ“ci i niepewnoÅ“ci pomiaru
         d_h(k) = yp_h_sc(k) - ym_h(k);
         d_pH(k) = yp_pH_sc(k) - ym_pH(k);
         % Trajektoria referencyjna
