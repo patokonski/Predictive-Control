@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Okoñski
+%  Autor: Patryk OkoÅ„ski
 %  Nazwa: generate_reactor_data.m
-%  Przeznaczenie: Generowanie zbiorów danych z reaktora.
+%  Przeznaczenie: Generowanie zbiorÃ³w danych z reaktora.
 % -------------------------------------------------------------------------
 
 global Wa1 Wa2 Wa3 Wb1 Wb2 Wb3 K1 K2 A Cv q2 Ts
