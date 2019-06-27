@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Okoñski
+%  Autor: Patryk OkoÅ„ski
 %  Nazwa: init_reactor_params.m
-%  Przeznaczenie: Inicjalizacja parametrów reaktora.
+%  Przeznaczenie: Inicjalizacja parametrÃ³w reaktora.
 % -------------------------------------------------------------------------
 
 function init_reactor_params
