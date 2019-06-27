@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk OkoÒski
+%  Autor: Patryk Oko≈Ñski
 %  Nazwa: generate_h_pH.m
-%  Przeznaczenie: Generowanie wyjúcia h i pH dla danych sterowaÒ.
+%  Przeznaczenie: Generowanie wyj≈ìcia h i pH dla danych sterowa√±.
 % -------------------------------------------------------------------------
 
 function [h_pH] = generate_h_pH(data, x0)
