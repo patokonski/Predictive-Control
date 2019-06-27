@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Okoñski
+%  Autor: Patryk OkoÃ±ski
 %  Nazwa: random_data.m
-%  Przeznaczenie: Generowanie losowych sterowañ.
+%  Przeznaczenie: Generowanie losowych sterowaÅ„.
 % -------------------------------------------------------------------------
 
 function [data] = random_data(q1, q3, q1min, q1max, q3min, q3max, qmod, iter)
