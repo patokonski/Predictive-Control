@@ -1,5 +1,5 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk OkoÒski
+%  Autor: Patryk Oko≈Ñski
 %  Nazwa: run_gpc.m
 %  Przeznaczenie: Algorytm GPC.
 % -------------------------------------------------------------------------
@@ -21,7 +21,7 @@ lambda = 0.001;
 wsplambda = lambda*[1 1];
 wspmi = 1*[1 1];
 
-% RzÍdy
+% RzÁí†y
 na = 2;
 nb = na;
 
@@ -29,7 +29,7 @@ nb = na;
 ny = 2;
 nu = 2;
 
-% Warunki poczπtkowe
+% Warunki poczÈùñkowe
 q10 = 16.6;                             
 q30 = 15.6;                             
 
@@ -46,8 +46,8 @@ load model_linear.mat;
 %% Obliczenie macierzy
 [G, K] = calculate_matrices(Hp,Hs,wsplambda,wspmi,ny,nu,na,nb);
 
-%% Alokacja wektorÛw
-% Trajektora zadana na ca≥ym horyzoncie
+%% Alokacja wektorÈóö
+% Trajektora zadana na caÈÄ†m horyzoncie
 y_zad_h = zeros(kend,1);
 y_zad_pH = zeros(kend,1);
 % Trajektoria zadana w danej iteracji algorytmu
@@ -57,12 +57,12 @@ y_ref = zeros(2*Hp,1);
 % Trajektoria wymuszona
 y_pred_h = zeros(Hp,1);
 y_pred_pH = zeros(Hp,1);
-% Wyjúcie procesu
+% WyjÓØäie procesu
 yp_h = zeros(kend,1);
 yp_pH = zeros(kend,1);
 yp_h(1:kstart-1) = h0;
 yp_pH(1:kstart-1) = pH0;   
-% Wyjúcie modelu
+% WyjÓØäie modelu
 ym_h = zeros(kend,1);
 ym_pH = zeros(kend,1);
 % Trajektoria swobodna
@@ -71,7 +71,7 @@ y0_pH = zeros(Hp,1);
 y0 = zeros(2*Hp,1);
 % Przyrosty sterowan
 detu = zeros(2*Hs,1);
-% Niemierzealne zak≥Ûcenia i niedok≥adnoúci modelu
+% Niemierzealne zakÂ†Øcenia i niedokË±âdnoÓØäi modelu
 d_h = zeros(kend,1);
 d_pH = zeros(kend,1);
 % Sterowania modelu
@@ -79,7 +79,7 @@ u = zeros(2,kend);
 % Sterowania procesu
 q1(1:kstart-1) = q10;
 q3(1:kstart-1) = q30;
-%% Wartoúci zadaane
+%% WartoÓØäi zadaane
 y_zad_pH(1:kstart) = pH0;
 y_zad_pH(3:19) = 6;
 y_zad_pH(20:39) = 8;
@@ -142,7 +142,7 @@ for k = kstart:kend
     for i = 1:na
         ym_pH(k) = ym_pH(k) - a(2,i)*ym_pH(k-i);
     end        
-    % Niepewnoúci pomiaru i modelu
+    % NiepewnoÓØäi pomiaru i modelu
     d_h(k) = yp_h_sc(k) - ym_h(k);
     d_pH(k) = yp_pH_sc(k) - ym_pH(k);
     % Obliczenie trajektori referencyjnej
@@ -169,12 +169,12 @@ for k = kstart:kend
     for p = 3:Hp
         y0_pH(p) = d_pH(k)+b(2,1,1)*u(1,k-1)+b(2,1,2)*u(1,k-1)+b(2,2,1)*u(2,k-1)+b(2,2,2)*u(2,k-1)-a(2,1)*y0_pH(p-1)-a(2,2)*y0_pH(p-2);
     end
-    % Z≥oøenie wektora y_ref
+    % ZÈÄôÁû†nie wektora y_ref
     for i = 1:Hp
        y_ref(2*i-1) = y_ref_h(i);
        y_ref(2*i) = y_ref_pH(i);
     end
-    % Z≥oøenie wektora y0
+    % ZÈÄôÁû†nie wektora y0
     for i = 1:Hp
        y0(2*i-1) = y0_h(i);
        y0(2*i) = y0_pH(i);
