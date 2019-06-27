@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Okoñski
+%  Autor: Patryk OkoÅ„ski
 %  Nazwa: initial_conditions.m
-%  Przeznaczenie: Generowanie warunków pocz¹tkowych.
+%  Przeznaczenie: Generowanie warunkÃ³w poczÄ…tkowych.
 % -------------------------------------------------------------------------
 
 function [x] = initial_conditions(q1, q3)
