@@ -14,6 +14,8 @@ There is no master file to rule them all so scritps have to be used in the follo
 2. train models (already trained - check "Dane" folder)
 3. run one of the "run*.m" files for chosen algorithm
 
+### Compatible with Matlab 2014b.
+
 # Sources
 * _P. Okoński (2018) Nonlinear model predictive control of multivariable process using a neural Wiener structure._
 
