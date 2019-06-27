@@ -1,11 +1,11 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk OkoÒski
+%  Autor: Patryk Oko≈Ñski
 %  Nazwa: run_mpc_no.m
 %  Przeznaczenie: Algorytm MPC-NO.
 % -------------------------------------------------------------------------
 
 clear all
-clc;
+%clc;
 
 global Ts
 global N Nu lambda k u u1 u2
@@ -15,11 +15,11 @@ global ymod_h_sim ymod_pH_sim yref_h_sim yref_pH_sim
 
 init_reactor_params;
 
-%% Neuronowe modele wienera wyjúÊ h i pH
+%% Neuronowe modele wienera wyj≈ì√¶ h i pH
 load('Dane/model_h.mat');
 load('Dane/model_pH.mat');
 
-% RzÍdy
+% Rz√™dy
 nb = max(model_h.nb)+1;
 nf = max(model_h.nf)+1;
 nk = max(model_h.nk)+1;
@@ -39,7 +39,7 @@ deltaq1max = q1max - q1min;
 deltaq3min = q3min - q3max;
 deltaq3max = q3max - q3min;
 
-% Warunki poczπtkowe
+% Warunki pocz¬πtkowe
 q10 = 16.6;                             
 q30 = 15.6;                             
 
@@ -68,8 +68,8 @@ deltaumax = [deltau1max deltau2max];
 kmax = 120+N;
 kmin = 3;
 
-%% Alokacja wektorÛw
-% -----Wartoúci zadane
+%% Alokacja wektor√≥w
+% -----Warto≈ìci zadane
 % h   
 yref_h(1:kmax-N) = h0;
 % pH
@@ -84,11 +84,11 @@ yref_pH(100:kmax-N) = 10;
 % Sterowania procesu
 q1(1:kmin-1) = q10;
 q3(1:kmin-1) = q30;
-% Wyjúcia procesu
+% Wyj≈ìcia procesu
 ymod_h(1:kmin-1) = h0;
 ymod_pH(1:kmin-1) = pH0;
 
-% Sterowania i wyjúcia modelu
+% Sterowania i wyj≈ìcia modelu
 u1 = zeros(1,kmax+Nu-1);
 u2 = zeros(1,kmax+Nu-1);
 ymod_h_sim = zeros(1,kmax+N);
@@ -100,7 +100,7 @@ u = [u1; u2];
 ymod_h_sim(1:kmin-1) = (ymod_h(1:kmin-1)-h0)/20;
 ymod_pH_sim(1:kmin-1) = (ymod_pH(1:kmin-1)-pH0)/5;
 
-% Dodatkowe sygna≥y na potrzeby symulacji modelu
+% Dodatkowe sygna¬≥y na potrzeby symulacji modelu
 v_h(1:kmin-1) = 0;
 v_pH(1:kmin-1) = 0;  
 
@@ -111,7 +111,7 @@ yref_h_sim = (yref_h-h0)/20;
 yref_sp_vec = zeros(2*N,1);
 
 % -----Parametry na potrzeby symulacji neuronowego modelu wienera
-% Model wyjúcia h
+% Model wyj≈ìcia h
 rnn_h = model_h.OutputNonlinearity.Parameters.RegressorMean;
 Qnn_h = model_h.OutputNonlinearity.Parameters.NonLinearSubspace;
 Pnn_h = model_h.OutputNonlinearity.Parameters.LinearSubspace;
@@ -129,7 +129,7 @@ aw_h(1) = (F11_h + F21_h); aw_h(2) = F11_h*F21_h;
 bw_h(1,1) = B11_h; bw_h(1,2) = B11_h*F21_h;
 bw_h(2,1) = B21_h; bw_h(2,2) = B21_h*F11_h;
 
-% Model wyjúcia pH
+% Model wyj≈ìcia pH
 rnn_pH = model_pH.OutputNonlinearity.Parameters.RegressorMean;
 Qnn_pH = model_pH.OutputNonlinearity.Parameters.NonLinearSubspace;
 Pnn_pH = model_pH.OutputNonlinearity.Parameters.LinearSubspace;
@@ -174,7 +174,7 @@ for k = kmin:kmax-N
 
 
     % -------------------------------------- Symulacja modelu
-    % ---------- Obliczenie wyjúcia h
+    % ---------- Obliczenie wyj≈ìcia h
     v_h(k) = bw_h(1,1)*u1(k-1) + bw_h(1,2)*u1(k-2)...
         + bw_h(2,1)*u2(k-1) + bw_h(2,2)*u2(k-2)...
         - aw_h(1)*v_h(k-1) - aw_h(2)*v_h(k-2);
@@ -184,7 +184,7 @@ for k = kmin:kmax-N
     for i = 1:K
         yh = yh + ann_h(i)*logsig((v_h(k) - rnn_h)*bnn_h(i) + cnn_h(i));
     end
-    % ---------- Obliczenie wyjúcia pH
+    % ---------- Obliczenie wyj≈ìcia pH
     v_pH(k) = bw_pH(1,1)*u1(k-1) + bw_pH(1,2)*u1(k-2)...
         + bw_pH(2,1)*u2(k-1) + bw_pH(2,2)*u2(k-2)...
         - aw_pH(1)*v_pH(k-1) - aw_pH(2)*v_pH(k-2);
@@ -195,7 +195,7 @@ for k = kmin:kmax-N
         ypH = ypH + ann_pH(i)*logsig((v_pH(k) - rnn_pH)*bnn_pH(i) + cnn_pH(i));
     end
 
-    % Niepewnoúci modelu i niemierzalne zak≥Ûcenia
+    % Niepewno≈ìci modelu i niemierzalne zak¬≥√≥cenia
     d_h(k) = ymod_h_sim(k) - yh;
     d_pH(k) = ymod_pH_sim(k) - ypH;
 
@@ -211,7 +211,7 @@ for k = kmin:kmax-N
     u1(k) = u(1,k);
     u2(k) = u(2,k);
 
-    % Skalowanie sterowaÒ
+    % Skalowanie sterowa√±
     q1(k) = u1(k)*15 + q10;
     q3(k) = u2(k)*15 + q30;
 end
