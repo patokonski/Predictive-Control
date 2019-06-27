@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Oko駍ki
+%  Autor: Patryk Oko艅ski
 %  Nazwa: mpc_porownanie.m
-%  Przeznaczenie: Symulacja por體nywanych algorytm體.
+%  Przeznaczenie: Symulacja por贸wnywanych algorytm贸w.
 % -------------------------------------------------------------------------
 
 clear all;
@@ -21,7 +21,7 @@ npsl_Nu = no_Nu;
 % npsl_lambda = no_lambda;
 % wektor lambda
 vlam = [0.1 0.25 0.5 1];
-%% Alokacja wektor體
+%% Alokacja wektor贸w
 
 % MPC-NO
 no_y_zad_h = [];
@@ -39,14 +39,14 @@ npsl_yp_pH = [];
 npsl_q1 = [];
 npsl_q3 = [];
 npsl_e = [];
-% Macierz b酬d體 i czas體 wykonania (14,x,max(size(vlam)))
+% Macierz b艂臋d贸w i czas贸w wykonania (14,x,max(size(vlam)))
 met = [];
 mt = [];
-%% P阾la dla r罂nych warto渃i lambda
+%% P臋tla dla r贸偶nych warto艣ci lambda
 for i = 1:max(size(vlam))
     no_lambda = vlam(i)
     npsl_lambda = no_lambda;
-    %% Wywo砤nie algorytm體
+    %% Wywo艂anie algorytm贸w
     % MPC-NO
     disp('*Algorytm MPC-NO...');
     start_no = tic;
@@ -136,7 +136,7 @@ for i = 1:max(size(vlam))
 %     clearvars no_y_zad_h no_y_zad_pH no_yp_h no_yp_pH no_q1 no_q3 no_e
 %     clearvars npsl_y_zad_h npsl_y_zad_pH npsl_yp_h npsl_yp_pH npsl_q1 npsl_q3 npsl_e
     
-%     %% Eksport wykres體
+%     %% Eksport wykres贸w
 %     % Budowanie nazwy pliku
 % %     w1_txt = sprintf('Wykresy/porownanie_h_N_%d_Nu_%d_lc_%0.2f',no_N,no_Nu,no_lambda);
 % %     w2_txt = sprintf('Wykresy/porownanie_pH_N_%d_Nu_%d_lc_%0.2f',no_N,no_Nu,no_lambda);
@@ -159,7 +159,7 @@ for i = 1:max(size(vlam))
 %     export_fig(w3, w3_txt, '-png', '-transparent', '-nocrop');
 %     export_fig(w4, w4_txt, '-png', '-transparent', '-nocrop');
 %     
-%     % Czyszczenie wykres體 dla kolejnej iteracji
+%     % Czyszczenie wykres贸w dla kolejnej iteracji
 %     clf(w1);
 %     clf(w2);
 %     clf(w3);
@@ -168,11 +168,8 @@ for i = 1:max(size(vlam))
 end
 % Eksport macierzy met
 % save 'Dane/mpc_porownanie_met.mat' met;
-% Zamkni阠ie okien
+% Zamkni臋cie okien
 % close(w1);
 % close(w2);
 % close(w3);
 % close(w4);
-
-
-
