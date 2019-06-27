@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Okoñski
+%  Autor: Patryk OkoÅ„ski
 %  Nazwa: sim_reactor.m
-%  Przeznaczenie: Rozwi¹zanie równañ ró¿niczkowych procesu z ode45.
+%  Przeznaczenie: RozwiÄ…zanie rÃ³wnaÅ„ rÃ³Å¼niczkowych procesu z ode45.
 % -------------------------------------------------------------------------
 
 function xd = sim_reactor(t, x, q1, q3)
