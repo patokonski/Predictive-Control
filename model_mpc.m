@@ -1,5 +1,5 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk OkoÒski
+%  Autor: Patryk Oko≈Ñski
 %  Nazwa: model_mpc.m
 %  Przeznaczenie: Funkcja kosztu na potrzeby MPC-NO.
 % -------------------------------------------------------------------------
@@ -20,7 +20,7 @@ function [J] = model_mpc(x)
     u(2,k+Nu:k+N) = u(2,k+Nu-1);
     
     for p = 1:N 
-        % ---------- obliczenie wyjúcia H
+        % ---------- obliczenie wyj≈ìcia H
 		v_h(k+p) = bw_h(1,1)*u(1,k+p-1) + bw_h(1,2)*u(1,k+p-2)...
 			+ bw_h(2,1)*u(2,k+p-1) + bw_h(2,2)*u(2,k+p-2)...
 			- aw_h(1)*v_h(k+p-1) - aw_h(2)*v_h(k+p-2);
@@ -30,7 +30,7 @@ function [J] = model_mpc(x)
 			ymod_h_sim(k+p) = ymod_h_sim(k+p) + ann_h(i)*logsig((v_h(k+p) - rnn_h)*bnn_h(i) + cnn_h(i));
         end
         
-		% ---------- obliczenie wyjúcia pH
+		% ---------- obliczenie wyj≈ìcia pH
 		v_pH(k+p) = bw_pH(1,1)*u(1,k+p-1) + bw_pH(1,2)*u(1,k+p-2)...
 			+ bw_pH(2,1)*u(2,k+p-1) + bw_pH(2,2)*u(2,k+p-2)...
 			- aw_pH(1)*v_pH(k+p-1) - aw_pH(2)*v_pH(k+p-2);
