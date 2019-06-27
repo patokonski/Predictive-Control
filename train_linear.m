@@ -1,5 +1,5 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Okoñski
+%  Autor: Patryk OkoÃ±ski
 %  Nazwa: train_linear.m
 %  Przeznaczenie: Wyznaczenie modelu liniowego procesu neutralizacji.
 % -------------------------------------------------------------------------
@@ -75,7 +75,7 @@ end
 ymodh = 20*y(1,1:end) + h0;
 ymodpH = 5*y(2,1:end) + pH0;
 
-% save Dane\model_linear a b
+save Dane\model_linear a b
 
 figure(1)
 plot(train(:,3),'b')
