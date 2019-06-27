@@ -9,6 +9,11 @@ Scripts covers:
 * predictive control of the model using MPC-NO, MPC-NPSL and GPC algorithms
 * algorithms comparison
 
+There is no master file to rule them all so scritps have to be used in the following way:
+1. generate data sets (already generated - check "Dane" folder)
+2. train models (already trained - check "Dane" folder)
+3. run one of the "run*.m" for choosen algorithm
+
 # Sources
 * _P. Okoński (2018) Nonlinear model predictive control of multivariable process using a neural Wiener structure._
 
