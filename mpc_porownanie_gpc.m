@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Oko駍ki
+%  Autor: Patryk Oko艅ski
 %  Nazwa: mpc_porownanie.m
-%  Przeznaczenie: Symulacja por體nywanych algorytm體.
+%  Przeznaczenie: Symulacja por贸wnywanych algorytm贸w.
 % -------------------------------------------------------------------------
 
 clear all;
@@ -13,7 +13,7 @@ clc;
 gpc_N = 10;
 gpc_Nu = 3;
 gpc_lambda_vec = [0.001 0.01 0.1 1];
-%% Alokacja wektor體
+%% Alokacja wektor贸w
 % GPC
 gpc_y_zad_h = [];
 gpc_y_zad_pH = [];
@@ -22,11 +22,11 @@ gpc_yp_pH = [];
 gpc_q1 = [];
 gpc_q3 = [];
 gpc_e = [];
-% Macierz b酬d體 i czas體 wykonania
+% Macierz b艂臋d贸w i czas贸w wykonania
 mgpcy = [];
 mgpce = [];
 
-%% P阾la dla r罂nych warto渃i gpc_lambda
+%% P臋tla dla r贸偶nych warto艣ci gpc_lambda
 for i = 1:max(size(gpc_lambda_vec))   
     % GPC
     disp(['*Algorytm GPC, iteracja ',num2str(i),'...']);
@@ -124,7 +124,7 @@ title('q_3(k)');
 grid on
 
 
-%% Eksport wykres體
+%% Eksport wykres贸w
 % Budowanie nazwy pliku
 % w1_txt = sprintf('Wykresy/porownanie_h_N_%d_Nu_%d_lc_%0.2f_lgpc_%0.3f',no_N,no_Nu,no_lambda,gpc_lambda);
 % w2_txt = sprintf('Wykresy/porownanie_pH_N_%d_Nu_%d_lc_%0.2f_lgpc_%0.3f',no_N,no_Nu,no_lambda,gpc_lambda);
@@ -147,7 +147,7 @@ w4_txt = sprintf('Wykresy/gpc_q3');
 % export_fig(w3, w3_txt, '-png', '-transparent', '-nocrop');
 % export_fig(w4, w4_txt, '-png', '-transparent', '-nocrop');
 
-% Czyszczenie wykres體 dla kolejnej iteracji
+% Czyszczenie wykres贸w dla kolejnej iteracji
 % clf(w1);
 % clf(w2);
 % clf(w3);
@@ -156,11 +156,8 @@ w4_txt = sprintf('Wykresy/gpc_q3');
     
 % Eksport macierzy met
 % save 'Dane/mpc_porownanie_met.mat' met;
-% Zamkni阠ie okien
+% Zamkni臋cie okien
 % close(w1);
 % close(w2);
 % close(w3);
 % close(w4);
-
-
-
