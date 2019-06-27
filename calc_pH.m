@@ -1,7 +1,7 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk OkoÒski
+%  Autor: Patryk Oko≈Ñski
 %  Nazwa: calc_pH.m
-%  Przeznaczenie: Liczenie wartoúci pH.
+%  Przeznaczenie: Liczenie warto≈õci pH.
 % -------------------------------------------------------------------------
 
 function [pH] = calc_pH(Wa, Wb)
@@ -13,5 +13,4 @@ function [pH] = calc_pH(Wa, Wb)
     p1 = ( Wa*10^(K1)-1 );
     p0 = -10^K1;
     pH = log10(max(roots([p4 p3 p2 p1 p0])));
-    
 end
