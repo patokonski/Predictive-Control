@@ -1,5 +1,5 @@
 %% ---------------------- FILE INFO ---------------------------------------
-%  Autor: Patryk Okoñski
+%  Autor: Patryk OkoÅ„ski
 %  Nazwa: calculate_matrices.m
 %  Przeznaczenie: Obliczenie macierzy S, G i K na potrzeby algorytmu GPC.
 % -------------------------------------------------------------------------
